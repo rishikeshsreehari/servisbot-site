@@ -22,3 +22,46 @@ title = 'My New Hugo Site'
   [module.hugoVersion]
     extended = false
     min = '0.146.0'
+
+
+# Add this to hugo.toml
+
+[[menu.footer1]]
+  name = "Product"
+  url = "/product/"
+  weight = 10
+[[menu.footer1]]
+  name = "Security"
+  url = "/servisbot-security-brief/"
+  weight = 20
+[[menu.footer1]]
+  name = "Product Docs"
+  url = "https://docs.servisbot.com/"
+  weight = 30
+  [menu.footer1.params]
+    target_blank = true # This will make the link open in a new tab
+[[menu.footer1]]
+  name = "AWS Partner"
+  url = "/aws-conversational-ai-partner-offering/"
+  weight = 40
+
+[[menu.footer2]]
+  name = "About"
+  url = "/about/"
+  weight = 10
+[[menu.footer2]]
+  name = "Case Studies"
+  url = "/success/"
+  weight = 20
+[[menu.footer2]]
+  name = "Resources"
+  url = "/resources/"
+  weight = 30
+[[menu.footer2]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 40
+[[menu.footer2]]
+  name = "Contact"
+  url = "/about/contact/"
+  weight = 50

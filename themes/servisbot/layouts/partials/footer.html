@@ -17,14 +17,14 @@
             <div class="col span_7">
                 <h3>Quick Links</h3>
                 <ul class="quick">
-                    {{ range .Site.Menus.footer1 }}
+                    {{- range .Site.Menus.footer1 }}
                         <li><a href="{{ .URL | relURL }}" {{ with .Params.target_blank }}target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
-                    {{ end }}
+                    {{- end }}
                 </ul>
-                <ul class="quick-2">
-                    {{ range .Site.Menus.footer2 }}
+                 <ul class="quick-2">
+                    {{- range .Site.Menus.footer2 }}
                         <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                    {{ end }}
+                    {{- end }}
                 </ul>
             </div>
             <div class="col span_6 flright">
@@ -32,7 +32,8 @@
                 <ul class="social-wrap social clr flex flex-row">
                     <li class="fb"><a target="_blank" rel="noopener" href="https://www.facebook.com/servisbot">Facebook</a></li>
                     <li class="in"><a target="_blank" rel="noopener" href="https://www.linkedin.com/company/servisbot">LinkedIn</a></li>
-                    <li class="tw"><a target="_blank" rel="noopener" href="https://twitter.com/ServisBOT">Twitter</a></li>
+                    {{/* This adds the X/Twitter icon as a direct image link */}}
+                    <li><a href="https://x.com/ServisBOT" target="_blank" rel="noopener"><img src="https://servisbotdev.wpenginepowered.com/wp-content/uploads/2024/08/x.png" alt="X/Twitter" /></a></li>
                 </ul>
                 <p class="copy">
                     <a href="/privacy/">Privacy Policy</a> | Copyright © {{ now.Format "2006" }} ServisBOT, All Rights Reserved.

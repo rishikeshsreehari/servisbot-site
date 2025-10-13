@@ -1892,7 +1892,7 @@ img.avatar {
   padding-left: 0;
 }
 .social a {
-  background: transparent url(images/social-icons.png) no-repeat 0 0;
+  background: transparent url(/images/social-icons.png) no-repeat 0 0;
   display: block;
   height: 28px;
   text-indent: -9999px;
