@@ -1522,7 +1522,7 @@ img.centered.offsetlarge {
   display: inline-block;
   padding-right: 20px;
   padding-left: 10px;
-  background: transparent url(images/navdown.png) no-repeat right 50%;
+  background: transparent url(/images/navdown.png) no-repeat right 50%;
 }
 .resource-text {
   padding-right: 10px;
@@ -2012,7 +2012,7 @@ img.avatar {
   margin-bottom: 0;
 }
 .nav > li.menu-item-has-children > a {
-  background: transparent url(images/navdown.png) no-repeat right 50%;
+  background: transparent url(/images/navdown.png) no-repeat right 50%;
   padding-right: 20px;
 }
 

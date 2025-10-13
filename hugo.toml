@@ -4,10 +4,93 @@ title = 'My New Hugo Site'
 theme = 'servisbot'
 
 
-[params]
-      [[menu.main]]
-        parent = "Resources"
-        name = "Blog"
-        url = "/blog/"  # Changed from /posts/ to /blog/
-        weight = 1
-        
+
+[menu]
+  [[menu.main]]
+    name = "Case Studies"
+    url = "/success/"
+    weight = 10
+  [[menu.main]]
+    name = "Product"
+    url = "/product/"
+    weight = 20
+  
+  # -- Solutions Dropdown --
+  [[menu.main]]
+    name = "Solutions"
+    url = "#"
+    weight = 30
+  [[menu.main]]
+    parent = "Solutions" # This item is inside the "Solutions" dropdown
+    name = "Mortgage AI"
+    url = "/mortgage/"
+    weight = 1
+  [[menu.main]]
+    parent = "Solutions"
+    name = "Banking"
+    url = "/banking/"
+    weight = 2
+  [[menu.main]]
+    parent = "Solutions"
+    name = "Customer Service"
+    url = "/customer-service/"
+    weight = 3
+  [[menu.main]]
+    parent = "Solutions"
+    name = "Insurance"
+    url = "/insurance/"
+    weight = 4
+
+  # -- About Dropdown --
+  [[menu.main]]
+    name = "About"
+    url = "#"
+    weight = 40
+  [[menu.main]]
+    parent = "About"
+    name = "About ServisBOT"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    parent = "About"
+    name = "ServisBOT Careers"
+    url = "/about/servisbot-careers/"
+    weight = 2
+  [[menu.main]]
+    parent = "About"
+    name = "Contact"
+    url = "/about/contact/"
+    weight = 3
+
+  # -- Resources Dropdown --
+  [[menu.main]]
+    name = "Resources"
+    url = "#"
+    weight = 50
+  [[menu.main]]
+    parent = "Resources"
+    name = "Blog"
+    url = "/blog/"
+    weight = 1
+  [[menu.main]]
+    parent = "Resources"
+    name = "Case Studies"
+    url = "/success/" # Note: You can have duplicate links
+    weight = 2
+  [[menu.main]]
+    parent = "Resources"
+    name = "Resources"
+    url = "/resources/"
+    weight = 3
+  [[menu.main]]
+    parent = "Resources"
+    name = "Video Hub"
+    url = "/conversational-ai-videos/"
+    weight = 4
+
+  # -- Special "Get Started" Button --
+  [[menu.main]]
+    name = "Get Started"
+    identifier = "get-started-btn" # A unique ID to style it as a button
+    url = "/about/contact/"
+    weight = 60
