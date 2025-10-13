@@ -2,6 +2,7 @@
 title: "ID&V, Reimagined: How 1st Central Modernized Customer Verification"
 date: 2025-10-12T10:00:00-05:00
 draft: false
+featured: true  
 author: "Kristen Muckleroy"
 categories:
   - "AI"

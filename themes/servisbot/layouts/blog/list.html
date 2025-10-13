@@ -1,31 +1,37 @@
 {{ define "main" }}
-{{ $featuredPost := first 1 .Pages }}
+
+{{/* Find the single post marked with "featured: true" */}}
+{{ $featuredPost := first 1 (where .Pages ".Params.featured" "eq" true) }}
+
+{{/* Create a paginated list of ALL posts */}}
+{{ $paginator := .Paginate .Pages }}
+
 {{ range $featuredPost }}
-{{/* Capture the page context in a variable called $post */}}
-{{ $post := . }}
-<section class="b0 region slide blog" id="intro-wrap">
-    <div class="img-wrap">
-        {{ with .Params.featured_image }}
-            {{/* Use the $post variable to get the title */}}
-            <img width="900" height="560" class="flood" src="{{ . | relURL }}" alt="{{ $post.Title }}" />
-        {{ end }}
-    </div>
-    <div id="intro" class="intro">
-        <div class="container white slideInUp">
-            <header id="intro-header" class="intro-header">
-                <article>
-                    <span class="post-category">Featured Post</span><br />
-                    <div class="h1"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-                    <p class="post-data">
-                        <span>By </span>
-                        <span class="author"><a href="#">{{ .Params.author }}</a></span>
-                        <span class="read">{{ .ReadingTime }} Minute Read</span>
-                    </p>
-                </article>
-            </header>
-        </div>
-    </div>
-</section>
+  {{/* Save the page context to a variable called $post */}}
+  {{ $post := . }}
+  <section class="b0 region slide blog" id="intro-wrap">
+      <div class="img-wrap">
+          {{ with .Params.featured_image }}
+              {{/* Use the variable to get the title, not the dot */}}
+              <img width="900" height="560" class="flood" src="{{ . | relURL }}" alt="{{ $post.Title }}" />
+          {{ end }}
+      </div>
+      <div id="intro" class="intro">
+          <div class="container white slideInUp">
+              <header id="intro-header" class="intro-header">
+                  <article>
+                      <span class="post-category">Featured Post</span><br />
+                      <div class="h1"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+                      <p class="post-data">
+                          <span>By </span>
+                          <span class="author"><a href="#">{{ .Params.author | default "ServisBOT" }}</a></span>
+                          <span class="read">{{ .ReadingTime }} Minute Read</span>
+                      </p>
+                  </article>
+              </header>
+          </div>
+      </div>
+  </section>
 {{ end }}
 
 <section class="region gutters s1 posts">
@@ -38,14 +44,14 @@
         </div>
         <div class="row block">
             <div class="col span_16">
-                {{ range .Paginator.Pages }}
-                {{/* Capture the page context in a variable again for this loop */}}
+                {{ range $paginator.Pages }}
+                {{/* Save the page context again for this loop */}}
                 {{ $post := . }}
                 <article class="row gutters" id="post-{{ .File.UniqueID }}">
                     <div class="col span_11 thmb">
                         <a href="{{ .Permalink }}">
                             {{ with .Params.thumbnail }}
-                                {{/* Use the $post variable here as well */}}
+                                {{/* Use the variable here as well */}}
                                 <img width="326" height="210" src="{{ . | relURL }}" class="attachment-small size-small wp-post-image" alt="{{ $post.Title }}">
                             {{ end }}
                         </a>
@@ -62,7 +68,7 @@
                         <p>{{ .Summary }}</p>
                         <p class="post-data">
                             <span>By </span>
-                            <span class="author"><a href="#">{{ .Params.author }}</a></span>
+                            <span class="author"><a href="#">{{ .Params.author | default "ServisBOT" }}</a></span>
                             <span class="read">{{ .ReadingTime }} Minute Read</span>
                         </p>
                     </div>
@@ -72,15 +78,9 @@
             </div>
             
             <div class="col span_7 sidebar">
-                <div class="sidebar-container">
-                    <aside id="sidebar">
-                        <div class="sidebar-widget-1">
-                            <div class="sidebar-widget">
-                                <h3>Subscribe for Updates</h3>
-                                </div>
-                            </div>
-                    </aside>
-                </div>
+              <div class="sidebar-container">
+                  {{ partial "sidebar.html" . }}
+              </div>
             </div>
         </div>
     </div>

@@ -891,7 +891,7 @@ img.centered.offsetlarge {
   position: relative;
 }
 .slideInUp {
-  visibility: hidden;
+  visibility: visible; /* This makes the text visible by default */
   opacity: 0;
   -moz-transition: all 0.7s ease-out;
   -webkit-transition: all 0.7s ease-out;
@@ -1128,10 +1128,13 @@ img.centered.offsetlarge {
 }
 
 
-
 .blog#intro-wrap .intro {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3; /* This ensures the text is on top of the overlay */
 }
 
 /* @media (max-width: 1430px) {
@@ -5122,4 +5125,75 @@ section.video-hero .video {
 /* Add this to your style.css */
 .header {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.07);
+}
+
+
+
+/* FIX: Position featured post text over the image */
+#intro-wrap .intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* FIX: Position featured post text over the image */
+#intro-wrap .intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+==============================================
+FEATURED POST OVERLAY FIX
+==============================================
+*/
+
+
+/* 2. Positions the text container on top of everything */
+#intro-wrap .intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* This ensures the text is on top of the dark overlay */
+}
+
+.blog#intro-wrap .img-wrap:before {
+  background: rgba(0, 40, 90, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  z-index: 1;
+}
+
+/*
+==============================================
+HERO SECTION HEIGHT FIX
+==============================================
+*/
+
+/* This forces the hero container to have the correct height */
+.b0.region.blog#intro-wrap {
+  height: 522px;
+}
+
+/*
+==============================================
+LAYOUT FIX FOR FIXED HEADER
+==============================================
+*/
+
+/* Pushes the main content down to clear the fixed header */
+main {
+  padding-top: 98px; /* This should match the height of your header */
 }
