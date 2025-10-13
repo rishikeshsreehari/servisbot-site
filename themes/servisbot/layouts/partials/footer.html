@@ -1,0 +1,43 @@
+<footer class="region footer white" id="footer">
+    <div class="container">
+        <div class="row gutters block">
+            <div class="col span_10">
+                <p class="padbottom">
+                    <a href="{{ .Site.BaseURL }}"><img width="232" height="42" src="{{ "images/servisbot-logo-white.png" | relURL }}" alt="servisbot" /></a>
+                </p>
+                <div class="row">
+                    <div class="col span_11">
+                        <p><strong>USA - ServisBOT Inc.</strong><br />Lexington, MA 02421<br />P: <a href="tel:+18574240978">+18574240978</a></p>
+                    </div>
+                    <div class="col span_11">
+                        <p><strong>IRELAND - ServisBOT Ltd.</strong><br />39 Northumberland Road, Dublin 4<br />Dublin D04 H1f3<br />P: <a href="tel:+35351348417">+353 51 348417</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col span_7">
+                <h3>Quick Links</h3>
+                <ul class="quick">
+                    {{ range .Site.Menus.footer1 }}
+                        <li><a href="{{ .URL | relURL }}" {{ with .Params.target_blank }}target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+                <ul class="quick-2">
+                    {{ range .Site.Menus.footer2 }}
+                        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col span_6 flright">
+                <h3>Follow Us Online</h3>
+                <ul class="social-wrap social clr flex flex-row">
+                    <li class="fb"><a target="_blank" rel="noopener" href="https://www.facebook.com/servisbot">Facebook</a></li>
+                    <li class="in"><a target="_blank" rel="noopener" href="https://www.linkedin.com/company/servisbot">LinkedIn</a></li>
+                    <li class="tw"><a target="_blank" rel="noopener" href="https://twitter.com/ServisBOT">Twitter</a></li>
+                </ul>
+                <p class="copy">
+                    <a href="/privacy/">Privacy Policy</a> | Copyright © {{ now.Format "2006" }} ServisBOT, All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,30 @@
+<div class="row n0 header">
+    <div class="navcontainer">
+        <div class="row container auto padxsmall">
+            <a href="{{ .Site.BaseURL }}" class="logo">
+                <img width="232" height="41" src="{{ "images/servisbot-logo.png" | relURL }}" style="height: auto" alt="ServisBOT" />
+            </a>
+            <nav class="navc">
+                <ul id="nav" class="nav">
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                        {{ $isCurrent := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                        <li class="menu-item {{ if .HasChildren }}menu-item-has-children{{ end }} {{ if eq .Identifier "get-started-btn" }}td{{ end }} {{ if $isCurrent }}current-menu-item current-menu-ancestor{{ end }}">
+                            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                            {{ if .HasChildren }}
+                                <ul class="sub-menu">
+                                    {{ range .Children }}
+                                        {{ $isCurrentSub := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                                        <li class="menu-item {{ if $isCurrentSub }}current-menu-item{{ end }}">
+                                            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            {{ end }}
+                        </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

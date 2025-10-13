@@ -1,0 +1,88 @@
+{{ define "main" }}
+{{ $featuredPost := first 1 .Pages }}
+{{ range $featuredPost }}
+{{/* Capture the page context in a variable called $post */}}
+{{ $post := . }}
+<section class="b0 region slide blog" id="intro-wrap">
+    <div class="img-wrap">
+        {{ with .Params.featured_image }}
+            {{/* Use the $post variable to get the title */}}
+            <img width="900" height="560" class="flood" src="{{ . | relURL }}" alt="{{ $post.Title }}" />
+        {{ end }}
+    </div>
+    <div id="intro" class="intro">
+        <div class="container white slideInUp">
+            <header id="intro-header" class="intro-header">
+                <article>
+                    <span class="post-category">Featured Post</span><br />
+                    <div class="h1"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+                    <p class="post-data">
+                        <span>By </span>
+                        <span class="author"><a href="#">{{ .Params.author }}</a></span>
+                        <span class="read">{{ .ReadingTime }} Minute Read</span>
+                    </p>
+                </article>
+            </header>
+        </div>
+    </div>
+</section>
+{{ end }}
+
+<section class="region gutters s1 posts">
+    <div class="container padtopxsmall">
+        <div class="row center block">
+            <div class="col span_24 blog-header">
+                <h1>AI<strong class="blue">Sense</strong></h1>
+                <h2>Best practices and thought leadership on Advanced AI for business</h2>
+            </div>
+        </div>
+        <div class="row block">
+            <div class="col span_16">
+                {{ range .Paginator.Pages }}
+                {{/* Capture the page context in a variable again for this loop */}}
+                {{ $post := . }}
+                <article class="row gutters" id="post-{{ .File.UniqueID }}">
+                    <div class="col span_11 thmb">
+                        <a href="{{ .Permalink }}">
+                            {{ with .Params.thumbnail }}
+                                {{/* Use the $post variable here as well */}}
+                                <img width="326" height="210" src="{{ . | relURL }}" class="attachment-small size-small wp-post-image" alt="{{ $post.Title }}">
+                            {{ end }}
+                        </a>
+                    </div>
+                    <div class="col span_13">
+                        <span class="post-cats">
+                            {{ with .Params.categories }}
+                                {{ range $index, $category := . }}
+                                    <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>{{ if ne $index (sub (len .) 1) }}, {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </span>
+                        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                        <p>{{ .Summary }}</p>
+                        <p class="post-data">
+                            <span>By </span>
+                            <span class="author"><a href="#">{{ .Params.author }}</a></span>
+                            <span class="read">{{ .ReadingTime }} Minute Read</span>
+                        </p>
+                    </div>
+                </article>
+                <hr>
+                {{ end }}
+            </div>
+            
+            <div class="col span_7 sidebar">
+                <div class="sidebar-container">
+                    <aside id="sidebar">
+                        <div class="sidebar-widget-1">
+                            <div class="sidebar-widget">
+                                <h3>Subscribe for Updates</h3>
+                                </div>
+                            </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

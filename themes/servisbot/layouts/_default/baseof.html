@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <link rel="shortcut icon" href="{{ "/images/favicon.png" | relURL }}">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Heebo%3A300%2C500%2C700">
+    
+    <link rel="stylesheet" href="{{ "/css/responsive.gs.24col.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/new-services.css" | relURL }}">
+
+</head>
+<body class="wp-theme-servisbot servisbot sub nomobile">
+
+    <div class="main-container" id="main">
+        
+        {{- partial "header.html" . -}}
+
+        <main>
+            {{- block "main" . }}{{- end -}}
+        </main>
+        
+        {{- partial "footer.html" . -}}
+
+    </div> <div class="tree" id="tree"><div class="leaf"></div></div>
+
+    <div class="overlay overlay-full">
+        <div>
+            <nav>
+                <ul id="anav" class="nav">
+                    {{ range .Site.Menus.main }}
+                        <li class="menu-item {{ if .HasChildren }}menu-item-has-children{{ end }}">
+                            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                            {{ if .HasChildren }}
+                                <ul class="sub-menu">
+                                    {{ range .Children }}<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>{{ end }}
+                                </ul>
+                            {{ end }}
+                        </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{{ "/js/jquery.modernizr.custom.js" | relURL }}"></script>
+    <script src="{{ "/js/jquery.matchHeight-min.js" | relURL }}"></script>
+    <script src="{{ "/js/jquery.inview.min.js" | relURL }}"></script>
+    <script src="{{ "/js/lazyload.js" | relURL }}"></script>
+    <script src="{{ "/js/typed.js" | relURL }}"></script>
+    <script src="{{ "/js/jquery.global.js" | relURL }}"></script>
+
+</body>
+</html>

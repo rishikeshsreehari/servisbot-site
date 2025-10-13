@@ -1,0 +1,13 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'servisbot'
+
+
+[params]
+      [[menu.main]]
+        parent = "Resources"
+        name = "Blog"
+        url = "/blog/"  # Changed from /posts/ to /blog/
+        weight = 1
+        
