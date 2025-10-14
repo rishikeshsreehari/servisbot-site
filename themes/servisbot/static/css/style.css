@@ -5297,3 +5297,43 @@ MOBILE OVERLAY MENU STYLES
 .overlay ul ul li a {
   font-size: 0.5em; /* Makes sub-menu text smaller */
 }
+
+/*
+==============================================
+MOBILE OVERLAY MENU STYLES (DEFINITIVE FIX)
+==============================================
+*/
+
+/* Target the nav element inside the overlay to set the base styles */
+.overlay nav {
+  text-align: right;
+  font-size: 54px; /* This sets the large font size */
+}
+
+/* Target list items specifically inside the #anav mobile menu */
+#anav li {
+  float: none; /* Override desktop style */
+  display: block;
+  padding: 0 40px 0.5em 0;
+  margin: 0 0 1em 0;
+}
+
+/* Target links specifically inside the #anav mobile menu */
+#anav li a {
+  font-size: 1em; /* Inherit the large 54px font size from the nav element */
+  font-weight: 400;
+  padding: 0; /* CRITICAL: This removes the huge 36px padding from the desktop rule */
+  color: #aaa;
+}
+
+/* Style the hover/active state */
+#anav li a:hover,
+#anav li.current-menu-item > a,
+#anav li.current-menu-ancestor > a {
+  color: #0392cf;
+}
+
+/* Hide sub-menus on mobile for now */
+#anav .sub-menu {
+  display: none;
+}
