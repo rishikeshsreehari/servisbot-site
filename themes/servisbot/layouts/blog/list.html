@@ -65,7 +65,7 @@
                             {{ end }}
                         </span>
                         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                        <p>{{ .Summary }}</p>
+                        <p>{{ .Params.summary | truncate 150 }}</p>
                         <p class="post-data">
                             <span>By </span>
                             <span class="author"><a href="#">{{ .Params.author | default "ServisBOT" }}</a></span>

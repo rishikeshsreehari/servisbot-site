@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+{{/* HERO SECTION: Uses a background image from front matter */}}
+{{ with .Params.hero_image }}
+  <section class="s0 region slide" id="intro-wrap">
+      <div id="intro" class="intro" style="background-image: url({{ . | relURL }});">
+          <div class="container white">
+              {{/* This container is empty in the original design, so we leave it empty */}}
+          </div>
+      </div>
+  </section>
+{{ end }}
+
+{{/* MAIN CONTENT & SIDEBAR SECTION */}}
+<section class="region gutters s1">
+    <div class="row container block">
+        
+        {{/* Left Column: The Post Content */}}
+        <div class="col span_16 content">
+            <div class="blog-inner">
+                
+                {{/* Post Categories */}}
+                <h4>
+                    {{ with .Params.categories }}
+                        {{ range $index, $category := . }}
+                            <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>{{ if ne $index (sub (len .) 1) }}, {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </h4>
+                
+                {{/* Post Title */}}
+                <h1>{{ .Title }}</h1>
+                
+                {{/* Post Metadata (Author, Reading Time) */}}
+                <div class="post-data">
+                    By <span class="author"><a href="#">{{ .Params.author | default "ServisBOT" }}</a></span>
+                    <span class="read">{{ .ReadingTime }} Minute Read</span>
+                </div>
+                
+                {{/* The main content from your Markdown file */}}
+                {{ .Content }}
+
+            </div>
+        </div>
+
+        {{/* Right Column: The Sidebar */}}
+        <div class="col span_7 sidebar">
+            <div class="sidebar-container">
+                {{ partial "sidebar.html" . }}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{{ end }}

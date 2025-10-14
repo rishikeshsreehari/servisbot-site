@@ -1,6 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
+paginate = 10
 
 [menus]
   [[menus.main]]
@@ -65,3 +66,5 @@ title = 'My New Hugo Site'
   name = "Contact"
   url = "/about/contact/"
   weight = 50
+
+

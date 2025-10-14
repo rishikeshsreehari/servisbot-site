@@ -3,12 +3,35 @@
         <div class="sidebar-widget">
             <h3>Subscribe for Updates</h3>
             <div class="shortform">
-                </div>
+                <form action="#" method="post" class="sidebar-form">
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <input type="submit" value="Subscribe" class="btn">
+                </form>
+            </div>
         </div>
 
         <h3>Related Posts</h3>
         <div class="sidebar-widget row block related-posts">
-            </div>
+            {{/* Find the top 2 related pages */}}
+            {{ $related := .Site.RegularPages.Related . | first 2 }}
+
+            {{/* Loop through the related pages and display them */}}
+            {{ with $related }}
+                {{ range . }}
+                    <div class="rl-post-sidebar">
+                        <a href="{{ .Permalink }}">
+                            {{ with .Params.thumbnail }}
+                                <img width="326" height="210" src="{{ . | relURL }}" class="attachment-thumbnail size-thumbnail wp-post-image" alt="{{ .Title }}">
+                            {{ end }}
+                            <div class="flexy rl-posts-txt">
+                                <h4>{{ .Title }}</h4>
+                                <div class="read-more">Read More</div>
+                            </div>
+                        </a>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
 
         <div class="sidebar-widget row block">
             <h3>Follow ServisBOT</h3>

@@ -5197,3 +5197,43 @@ LAYOUT FIX FOR FIXED HEADER
 main {
   padding-top: 98px; /* This should match the height of your header */
 }
+
+/*
+==============================================
+SIDEBAR SUBSCRIBE FORM STYLES
+==============================================
+*/
+
+.sidebar-widget .shortform input[type="email"] {
+  margin-bottom: 0.5em; /* Adds a little space below the email field */
+}
+
+.sidebar-widget .shortform .btn {
+  width: 100%; /* Makes the button full-width */
+  margin-top: 0.5em; /* Adds space above the button */
+}
+
+/*
+==============================================
+SINGLE POST CONTENT STYLES
+==============================================
+*/
+
+/* Styles the vertical bar for interview blocks */
+.blog-inner .borderleft {
+  display: inline-block;
+  border-left: 3px solid;
+  /* This will inherit the color from the parent span's style attribute */
+  border-left-color: inherit; 
+  padding-left: 1em;
+}
+
+/* Styles the pull-quotes used in the article */
+.pull-quote {
+  text-align: center;
+  color: #666699;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em; /* This reduces the size to match the original */
+  margin: 1em 0;
+}

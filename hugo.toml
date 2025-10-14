@@ -94,3 +94,9 @@ theme = 'servisbot'
     identifier = "get-started-btn" # A unique ID to style it as a button
     url = "/about/contact/"
     weight = 60
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
