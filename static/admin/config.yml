@@ -1,0 +1,28 @@
+# Use Netlify's authentication
+backend:
+  name: git-gateway
+
+# Where to store uploaded media files in your repository
+media_folder: "static/images/uploads"
+# The public-facing path to access the media files
+public_folder: "/images/uploads"
+
+# Define the content types that can be edited
+collections:
+  - name: "blog" # The collection's identifier
+    label: "Blog Posts" # The name that appears in the CMS UI
+    folder: "content/blog" # The folder where blog posts are stored
+    create: true # Allow users to create new posts
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename format
+    fields: # Defines the fields for each post, mapping to your front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "ServisBOT" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
+      - { label: "Categories", name: "categories", widget: "list", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Hero Image (for post page)", name: "hero_image", widget: "image" }
+      - { label: "Featured Image (for blog list)", name: "featured_image", widget: "image", required: false }
+      - { label: "Thumbnail Image (for blog list)", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
