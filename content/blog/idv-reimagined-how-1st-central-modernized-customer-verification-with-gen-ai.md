@@ -7,7 +7,7 @@ author: "Kristen Muckleroy"
 categories: ["AI", "Customer Service Transformation", "Voice"]
 thumbnail: "/images/blog/2025/10/1st-Central-LinkedIn-Image-326x210.png"
 featured_image: "/images/blog/2025/10/1st-Central-LinkedIn-Image.png"
-hero_image: "/images/blog/2025/10/1st-Central-LinkedIn-Image.png"
+hero_image: "/images/blog/2025/10/Blog-Featured-Image-2.png"
 summary: "1st Central is one of the UK’s fastest-growing insurance providers with around 1.5 million customers..."
 
 ---

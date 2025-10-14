@@ -9,7 +9,7 @@ categories:
   - "AI"
 thumbnail: "/images/blog/2025/10/IDV-1-1-326x210.png"
 featured_image: "/images/blog/2025/10/IDV-1-1.png"
-hero_image: "/imsages/blog/2025/10/IDV-1-1.png"
+hero_image: "/images/blog/2025/10/IDV-1-1-900x385.png"
 summary: Mortgage servicers face a complex balancing act when managing delinquent accounts. They must maximize...
 ---
 

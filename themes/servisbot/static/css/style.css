@@ -5237,3 +5237,63 @@ SINGLE POST CONTENT STYLES
   font-size: 1.1em; /* This reduces the size to match the original */
   margin: 1em 0;
 }
+
+/*
+==============================================
+SINGLE POST HERO HEIGHT FIX
+==============================================
+*/
+
+/* This forces the single post's hero section to have a height */
+.single-post #intro-wrap {
+  height: 385px;
+}
+
+/*
+==============================================
+MOBILE OVERLAY MENU STYLES
+==============================================
+*/
+
+/* Styles the main navigation container in the overlay */
+.overlay nav {
+  text-align: right; /* Aligns menu items to the right */
+  font-size: 54px;   /* This is the large font size you see on the original */
+}
+
+/* Styles each individual menu item */
+.overlay ul li {
+  display: block;    /* Stacks items vertically */
+  float: none;       /* Undoes the 'float: left' from the desktop style */
+  min-height: 1em;
+  padding: 0 40px 0.5em 0; /* Adjusts padding for a vertical layout */
+  margin: 0 0 1em 0; /* Adjusts margin for vertical spacing */
+  font-weight: 400;
+  background: none;
+}
+
+/* Styles the links themselves */
+.overlay ul li a {
+  display: block;
+  color: #aaa;      /* Sets the default link color to grey */
+  transition: all 0.2s;
+  text-decoration: none;
+  padding: 0;      /* Resets padding from the desktop link style */
+}
+
+/* Styles for hover and active states */
+.overlay ul li a:hover,
+.overlay ul li.current-menu-item > a,
+.overlay ul li.current-menu-ancestor > a {
+  color: #0392cf; /* Sets the link color to blue on hover/active */
+}
+
+/* Styles for sub-menu items */
+.overlay ul ul.sub-menu {
+  display: none; /* Sub-menus are hidden by default on mobile */
+  margin: 0.5em 0 0 1em;
+}
+
+.overlay ul ul li a {
+  font-size: 0.5em; /* Makes sub-menu text smaller */
+}
