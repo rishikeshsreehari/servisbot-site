@@ -5248,92 +5248,66 @@ SINGLE POST HERO HEIGHT FIX
 .single-post #intro-wrap {
   height: 385px;
 }
-
 /*
 ==============================================
-MOBILE OVERLAY MENU STYLES
+MOBILE OVERLAY MENU STYLES (DEFINITIVE FIX V2)
 ==============================================
 */
 
-/* Styles the main navigation container in the overlay */
-.overlay nav {
-  text-align: right; /* Aligns menu items to the right */
-  font-size: 54px;   /* This is the large font size you see on the original */
-}
-
-/* Styles each individual menu item */
-.overlay ul li {
-  display: block;    /* Stacks items vertically */
-  float: none;       /* Undoes the 'float: left' from the desktop style */
-  min-height: 1em;
-  padding: 0 40px 0.5em 0; /* Adjusts padding for a vertical layout */
-  margin: 0 0 1em 0; /* Adjusts margin for vertical spacing */
-  font-weight: 400;
-  background: none;
-}
-
-/* Styles the links themselves */
-.overlay ul li a {
-  display: block;
-  color: #aaa;      /* Sets the default link color to grey */
-  transition: all 0.2s;
-  text-decoration: none;
-  padding: 0;      /* Resets padding from the desktop link style */
-}
-
-/* Styles for hover and active states */
-.overlay ul li a:hover,
-.overlay ul li.current-menu-item > a,
-.overlay ul li.current-menu-ancestor > a {
-  color: #0392cf; /* Sets the link color to blue on hover/active */
-}
-
-/* Styles for sub-menu items */
-.overlay ul ul.sub-menu {
-  display: none; /* Sub-menus are hidden by default on mobile */
-  margin: 0.5em 0 0 1em;
-}
-
-.overlay ul ul li a {
-  font-size: 0.5em; /* Makes sub-menu text smaller */
-}
-
-/*
-==============================================
-MOBILE OVERLAY MENU STYLES (DEFINITIVE FIX)
-==============================================
-*/
-
-/* Target the nav element inside the overlay to set the base styles */
+/* Target the nav element to set the base font size */
 .overlay nav {
   text-align: right;
-  font-size: 54px; /* This sets the large font size */
+  font-size: 28px; /* Reduced base font size for the overlay */
 }
 
-/* Target list items specifically inside the #anav mobile menu */
+/* Reset styles for all list items inside the mobile menu */
 #anav li {
-  float: none; /* Override desktop style */
+  float: none;
   display: block;
-  padding: 0 40px 0.5em 0;
-  margin: 0 0 1em 0;
+  padding: 0 40px 0 0; /* Simpler padding */
+  margin: 0 0 0.8em 0; /* Vertical spacing */
+  position: relative; /* Needed for the '+' icon */
 }
 
-/* Target links specifically inside the #anav mobile menu */
+/* Reset link styles */
 #anav li a {
-  font-size: 1em; /* Inherit the large 54px font size from the nav element */
+  font-size: 1em; /* Inherit the 28px font size */
   font-weight: 400;
-  padding: 0; /* CRITICAL: This removes the huge 36px padding from the desktop rule */
+  padding: 0; /* CRITICAL: Removes desktop padding */
   color: #aaa;
 }
 
-/* Style the hover/active state */
+/* Hover/active state */
 #anav li a:hover,
 #anav li.current-menu-item > a,
 #anav li.current-menu-ancestor > a {
   color: #0392cf;
 }
 
-/* Hide sub-menus on mobile for now */
+/* Style and position the '+' expand icon */
+#anav .expand-icon {
+  position: absolute;
+  left: 0; /* Position on the far left */
+  top: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* Hide sub-menus by default */
 #anav .sub-menu {
   display: none;
+  margin: 0.5em 0 0 1em;
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Style for sub-menu items */
+#anav .sub-menu li a {
+  font-size: 0.8em; /* Make sub-menu text smaller */
 }

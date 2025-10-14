@@ -4,36 +4,23 @@
     <meta charset="UTF-8">
     <title>{{ .Site.Title }} | {{ .Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
     <link rel="shortcut icon" href="{{ "/images/favicon.png" | relURL }}">
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Heebo%3A300%2C500%2C700">
-    
     <link rel="stylesheet" href="{{ "/css/responsive.gs.24col.css" | relURL }}">
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
     <link rel="stylesheet" href="{{ "/css/new-services.css" | relURL }}">
-
-    <style>
-      .blog#intro-wrap .slideInUp {
-        opacity: 1 !important;
-        transform: translate3d(0, 0, 0) !important;
-        visibility: visible !important;
-      }
-    </style>
-    </head>
+</head>
 <body class="wp-theme-servisbot servisbot sub nomobile {{ if .IsPage }}single-post{{ end }}">
 
     <div class="main-container" id="main">
-        
         {{- partial "header.html" . -}}
-
         <main>
             {{- block "main" . }}{{- end -}}
         </main>
-        
         {{- partial "footer.html" . -}}
+    </div>
 
-    </div> <div class="tree" id="tree"><div class="leaf"></div></div>
+    <div class="tree" id="tree"><div class="leaf"></div></div>
 
     <div class="overlay overlay-full">
         <div>
@@ -41,6 +28,7 @@
                 <ul id="anav" class="nav">
                     {{ range .Site.Menus.main }}
                         <li class="menu-item {{ if .HasChildren }}menu-item-has-children{{ end }}">
+                            {{ if .HasChildren }}<span class="expand-icon">+</span>{{ end }}
                             <a href="{{ .URL | relURL }}">{{ .Name }}</a>
                             {{ if .HasChildren }}
                                 <ul class="sub-menu">
@@ -61,6 +49,26 @@
     <script src="{{ "/js/lazyload.js" | relURL }}"></script>
     <script src="{{ "/js/typed.js" | relURL }}"></script>
     <script src="{{ "/js/jquery.global.js" | relURL }}"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var expandIcons = document.querySelectorAll('#anav .expand-icon');
+        expandIcons.forEach(function(icon) {
+          icon.addEventListener('click', function() {
+            var subMenu = this.parentElement.querySelector('.sub-menu');
+            if (subMenu) {
+              if (subMenu.style.display === 'block') {
+                subMenu.style.display = 'none';
+                this.textContent = '+';
+              } else {
+                subMenu.style.display = 'block';
+                this.textContent = '-';
+              }
+            }
+          });
+        });
+      });
+    </script>
 
 </body>
 </html>
