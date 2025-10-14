@@ -50,6 +50,30 @@
     <script src="{{ "/js/typed.js" | relURL }}"></script>
     <script src="{{ "/js/jquery.global.js" | relURL }}"></script>
 
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var expandIcons = document.querySelectorAll('#anav .expand-icon');
+        expandIcons.forEach(function(icon) {
+          icon.addEventListener('click', function() {
+            var subMenu = this.parentElement.querySelector('.sub-menu');
+            if (subMenu) {
+              if (subMenu.style.display === 'block') {
+                subMenu.style.display = 'none';
+                this.textContent = '+';
+              } else {
+                subMenu.style.display = 'block';
+                this.textContent = '-';
+              }
+            }
+          });
+        });
+      });
+    </script>
+
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var expandIcons = document.querySelectorAll('#anav .expand-icon');
