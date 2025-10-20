@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://servisbot.netlify.app/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Servis Bot Demo'
 theme = 'servisbot'
 
 
