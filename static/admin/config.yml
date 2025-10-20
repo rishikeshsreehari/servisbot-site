@@ -1,9 +1,10 @@
 # Use Netlify's authentication
 backend:
   name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
 
 # Where to store uploaded media files in your repository
-media_folder: "static/images/uploads"
+media_folder: "themes/servisbot/static/images/uploads"
 # The public-facing path to access the media files
 public_folder: "/images/uploads"
 
