@@ -5,6 +5,11 @@
 [build.environment]
   HUGO_VERSION = "0.140.2"
 
+
 [build.processing]
-# Tell Netlify's scanner that "AUTH0_AUDIENCE" is not a secret
-secrets_scan_omit_keys = ["AUTH0_AUDIENCE"]
+  secrets_scan_omit_keys = [
+    "AUTH0_AUDIENCE",
+    "AUTH0_CLIENT_ID",
+    "AUTH0_DOMAIN",
+    "AUTH0_ISSUER_BASE_URL"
+  ]

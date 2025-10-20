@@ -1,9 +1,6 @@
-baseURL = 'https://servisbot.netlify.app/'
 languageCode = 'en-us'
 title = 'Servis Bot Demo'
 theme = 'servisbot'
-
-
 
 [menu]
   [[menu.main]]
